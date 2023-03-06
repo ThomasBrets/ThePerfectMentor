@@ -28,7 +28,7 @@ app.use(session({secret: sessionKey, resave: true, saveUninitialized: true}))
 app.use("/api", routes)
 
 app.get("/", (req, res) => {
-    res.send("funciona")
+    res.send("funciona")    
 })
 
 //!Server
