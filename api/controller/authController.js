@@ -1,4 +1,67 @@
+const express = require("express");
 const User = require("../models/Users");
+const mongoose = require("mongoose");
+
+class AuthController {
+  static async createUser(req, res) {
+    const newUser = new User(req.body);
+    newUser._id = mongoose.Types.ObjectId();
+    newUser.save(function (err) {
+      if (err) {
+        console.log("No se guardo");
+        res.status(400);
+        res.send();
+      }
+    });
+    return res.status(201).json(data);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+const User = require("../models/Users");
+const AuthService = require("../services/authServices")
+
+class AuthController {
+  static async createUser(req, res) {
+    const { error, data } = await AuthService.createUser(req.body);
+console.log("DATA", data)
+console.log("ERROR", error)
+    return error
+      ? res.status(data.status || 500).json({ message: data })
+      : res.status(201).json(data);
+  }
+}
 
 const register = (req, res) => {
   User.create(req.body)
@@ -10,16 +73,12 @@ const register = (req, res) => {
     .catch();
 };
 
-const findAllUsers = (req, res, next) => {
-  const collection = req.app.locals.users;
-  console.log("COLLECTION", collection)
-  collection.find({}).toArray((err, docs) => {
-    if (err) {
-      res.status(500).send('Error al obtener los documentos');
-    } else {
-      res.send(docs);
-    }
-  });
+/*
+const findAllUsers = (req, res) => {
+  User.find()
+    .then((data) => res.send(data))
+    .catch((err) => console.log(err));
 };
+*/
 
-module.exports = { register, findAllUsers };
+module.exports = AuthController;
