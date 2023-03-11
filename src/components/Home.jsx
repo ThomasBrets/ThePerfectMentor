@@ -2,7 +2,7 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div className="card lg:card-side bg-base-100 shadow-xl">
+    <div className="m-10 card lg:card-side bg-base-100 shadow-xl">
     <figure><img src="https://i.scdn.co/image/ab67616d00001e02dacce52840e9ad6c572ef173" alt="Album"/></figure>
     <div className="card-body">
       <h2 className="card-title">Salio el nuevo album de Obie wanshot!</h2>
