@@ -4,16 +4,22 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">ThePerfectMentor</a>
+        <a className="btn btn-ghost normal-case text-xl" href="http://127.0.0.1:5173/">ThePerfectMentor</a>
       </div>
       <div className="flex-2">
-      <a className="btn btn-ghost normal-case text-md">Buscar a mi mentor</a>
+        <a className="btn btn-ghost normal-case text-lg" href="http://127.0.0.1:5173/register">Registrate</a>
+      </div>
+      <div className="flex-1">
+        <a className="btn btn-ghost normal-case text-lg" href="http://127.0.0.1:5173/login">Inicia Sesión</a>
       </div>
       <div className="flex-2">
-      <a className="btn btn-ghost normal-case text-md">Mis clases</a>
+        <a className="btn btn-ghost normal-case text-md">Buscar a mi mentor</a>
       </div>
       <div className="flex-2">
-      <a className="btn btn-ghost normal-case text-md">Publicar</a>
+        <a className="btn btn-ghost normal-case text-md">Mis clases</a>
+      </div>
+      <div className="flex-2">
+        <a className="btn btn-ghost normal-case text-md">Publicar</a>
       </div>
       <div className="flex-none">
         <div className="dropdown dropdown-end">

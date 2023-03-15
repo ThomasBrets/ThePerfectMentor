@@ -21,8 +21,7 @@ const Card = () => {
 
           <div className="card-actions justify-end">
             <a
-              href="https://open.spotify.com/album/4w6yFXp0Mx0NyrLNEl7Jts"
-              target="_blank"
+              href="http://127.0.0.1:5173/SinglePage"
             >
               <button className="btn btn-primary">Contactar</button>
             </a>
@@ -46,8 +45,7 @@ const Card = () => {
 
           <div className="card-actions justify-end">
             <a
-              href="https://open.spotify.com/album/4w6yFXp0Mx0NyrLNEl7Jts"
-              target="_blank"
+              href="http://127.0.0.1:5173/SinglePage"
             >
               <button className="btn btn-primary">Contactar</button>
             </a>
@@ -74,8 +72,7 @@ const Card = () => {
 
           <div className="card-actions justify-end">
             <a
-              href="https://open.spotify.com/album/4w6yFXp0Mx0NyrLNEl7Jts"
-              target="_blank"
+              href="http://127.0.0.1:5173/SinglePage"
             >
               <button className="btn btn-primary">Contactar</button>
             </a>
