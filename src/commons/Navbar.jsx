@@ -13,7 +13,7 @@ const Navbar = () => {
         <a className="btn btn-ghost normal-case text-lg" href="http://127.0.0.1:5173/login">Inicia Sesión</a>
       </div>
       <div className="flex-2">
-        <a className="btn btn-ghost normal-case text-md">Buscar a mi mentor</a>
+        <a className="btn btn-ghost normal-case text-md">Buscar mi mentor</a>
       </div>
       <div className="flex-2">
         <a className="btn btn-ghost normal-case text-md" href="http://127.0.0.1:5173/mis-clases">Mis clases</a>
