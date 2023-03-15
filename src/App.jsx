@@ -6,6 +6,8 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Footer from "./commons/Footer";
 import SinglePage from "./commons/SinglePage";
+import Clases from "./commons/Clases";
+import Publicar from "./commons/Publicar";
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/SinglePage" element={<SinglePage />} />
+        <Route path="/single-page" element={<SinglePage />} />
+        <Route path="/mis-clases" element={<Clases />} />
+        <Route path="/publicar" element={<Publicar />} />
       </Routes>
       <Footer />
     </div>

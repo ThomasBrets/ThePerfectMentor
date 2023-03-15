@@ -21,7 +21,7 @@ const Card = () => {
 
           <div className="card-actions justify-end">
             <a
-              href="http://127.0.0.1:5173/SinglePage"
+              href="http://127.0.0.1:5173/single-page"
             >
               <button className="btn btn-primary">Contactar</button>
             </a>
@@ -45,7 +45,7 @@ const Card = () => {
 
           <div className="card-actions justify-end">
             <a
-              href="http://127.0.0.1:5173/SinglePage"
+              href="http://127.0.0.1:5173/single-page"
             >
               <button className="btn btn-primary">Contactar</button>
             </a>
@@ -72,7 +72,7 @@ const Card = () => {
 
           <div className="card-actions justify-end">
             <a
-              href="http://127.0.0.1:5173/SinglePage"
+              href="http://127.0.0.1:5173/single-page"
             >
               <button className="btn btn-primary">Contactar</button>
             </a>

@@ -16,10 +16,10 @@ const Navbar = () => {
         <a className="btn btn-ghost normal-case text-md">Buscar a mi mentor</a>
       </div>
       <div className="flex-2">
-        <a className="btn btn-ghost normal-case text-md">Mis clases</a>
+        <a className="btn btn-ghost normal-case text-md" href="http://127.0.0.1:5173/mis-clases">Mis clases</a>
       </div>
       <div className="flex-2">
-        <a className="btn btn-ghost normal-case text-md">Publicar</a>
+        <a className="btn btn-ghost normal-case text-md" href="http://127.0.0.1:5173/publicar">Publicar</a>
       </div>
       <div className="flex-none">
         <div className="dropdown dropdown-end">
