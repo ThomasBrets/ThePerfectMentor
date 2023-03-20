@@ -12,7 +12,7 @@ const db = require("./config/db");
 const routes = require('./routes')
 
 //! .env
-require('dotenv').config({path:"/home/thomas/bootcamp/ProfessionalProject/ThePerfectMentor/ThePerfectMentor/.env"})
+require('dotenv').config()
 // console.log("DOTENV:", process.env.SESSION_KEY);
 
 //!Middlewares
