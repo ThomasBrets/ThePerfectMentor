@@ -1,4 +1,15 @@
-const checkAuth = (req, res, next) =>
-  req.isAuthenticated() ? next() : res.status(401).send("unauthorized");
+const { validateToken } = require("../config/tokens");
 
-module.exports = { checkAuth };
+const validateUser = (req, res, next) => {
+  const token = req.cookies.token;
+  if(!token) res.sendStatus(401);
+
+  const { user } = validateToken(token);
+  if(!user) res.sendStatus(401);
+
+  req.user = user;
+
+  next();
+};
+
+module.exports = { validateUser };

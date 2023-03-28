@@ -40,6 +40,9 @@ const UserSchema = new Schema({
     required: true,
     default: "https://www.educapeques.com/wp-content/uploads/2015/11/009DDF63-8267-484C-B115-F1AA51450099-1024x604.jpg"
   },
+  salt: {
+    type: String,
+  }
 });
 
 UserSchema.pre("save", async function (next) {
@@ -49,6 +52,12 @@ UserSchema.pre("save", async function (next) {
   }
   next();
 });
+
+UserSchema.methods.validatePassword = function(password) {
+  return bcrypt
+      .hash(password, this.salt)
+      .then((hash) => hash === this.password);
+};
 
 UserSchema.plugin(findOrCreate);
 
