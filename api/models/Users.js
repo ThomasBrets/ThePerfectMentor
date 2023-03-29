@@ -40,9 +40,18 @@ const UserSchema = new Schema({
     required: true,
     default: "https://www.educapeques.com/wp-content/uploads/2015/11/009DDF63-8267-484C-B115-F1AA51450099-1024x604.jpg"
   },
+  admin:{
+    type: Boolean,
+    default: false,
+  },
+  mentor:{
+    type: Boolean,
+    required: true,
+    default: false,
+  },
   salt: {
     type: String,
-  }
+  },
 });
 
 UserSchema.pre("save", async function (next) {
@@ -61,4 +70,6 @@ UserSchema.methods.validatePassword = function(password) {
 
 UserSchema.plugin(findOrCreate);
 
-module.exports = model("User", UserSchema);
+const Model = model("User", UserSchema)
+
+module.exports = {Model, validatePassword}

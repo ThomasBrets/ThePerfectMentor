@@ -1,5 +1,6 @@
 const User = require("../models/Users");
 const joi = require("../config/joi");
+const {validatePassword} = require("../models/Users")
 
 class AuthService {
   static async createUser({
@@ -38,7 +39,6 @@ class AuthService {
       return { error: true, data: error.message };
     }
   }
-  
-}
+  }
 
 module.exports = AuthService;

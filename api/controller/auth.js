@@ -3,6 +3,7 @@ const User = require("../models/Users");
 const mongoose = require("mongoose");
 const AuthService = require("../services/auth");
 const { generateToken, validateToken } = require("../config/tokens");
+const {validatePassword} = require("../models/Users")
 
 class AuthController {
   static async createUser(req, res) {
@@ -38,17 +39,7 @@ class AuthController {
       return { error: true, data: error.message };
     }
   }
-  // static async secret(req, res) {
-  //   res.send(req.user);
-  // }
-  // static async me(req, res) {
-  //   res.send(req.user)
-  // }
-  // static async logoutUser(req, res) {
-  //   res.clearCookie("token");
-  
-  //   res.sendStatus(204);
-  // }
+ 
 }
 
 module.exports = AuthController;
