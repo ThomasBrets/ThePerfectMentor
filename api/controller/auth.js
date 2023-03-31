@@ -3,22 +3,24 @@ const User = require("../models/Users");
 const mongoose = require("mongoose");
 const AuthService = require("../services/auth");
 const { generateToken, validateToken } = require("../config/tokens");
-const {validatePassword} = require("../models/Users")
+// const {validatePassword} = require("../models/Users")
 
 class AuthController {
   static async createUser(req, res) {
     const { error, data } = await AuthService.createUser(req.body);
-    console.log("DATA", data);
+    // console.log("DATA", data);
     return error
       ? res.status(data.status || 500).json({ message: data })
       : res.status(201).json(data);
   }
   static async loginUser(req, res) {
     const { email, password } = req.body;
+    console.log("EMAIL", email);
+    console.log("PASSWORD", password);
 
-    try {
       User.findOne({ email })
       .then((user) => {
+        console.log("USER", user);
         if (!user) return res.sendStatus(401);
         user.validatePassword(password).then((isValid) => {
           if (!isValid) return res.sendStatus(401);
@@ -34,10 +36,8 @@ class AuthController {
 
           res.send(payload);
         });
-      });
-    } catch (error) {
-      return { error: true, data: error.message };
-    }
+      }).catch((error) => console.log(error))
+      
   }
  
 }
