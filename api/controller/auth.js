@@ -13,7 +13,7 @@ class AuthController {
     const { email, password } = req.body;
     User.findOne({ email })
       .then((user) => {
-        console.log("USER", user);
+        // console.log("USER", user);
         if (!user) return res.sendStatus(401);
         user.validatePassword(password).then((isValid) => {
           if (!isValid) return res.sendStatus(401);
@@ -32,6 +32,22 @@ class AuthController {
       })
       .catch((error) => console.log(error));
   }
+
+  static async logoutUser(req, res) {
+    res.clearCookie("token");
+
+    res.sendStatus(204);
+  }
+
+  static async findMyUser(req, res) {
+    !req.user ? res.sendStatus(401) : res.send(req.user);
+  }
+
+  static async secret(req, res) {
+    res.send(req.user);
+  }
+
+
 }
 
 module.exports = AuthController;
