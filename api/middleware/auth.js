@@ -12,4 +12,6 @@ const validateUser = (req, res, next) => {
   next();
 };
 
-module.exports = { validateUser };
+const checkAuthAdmin = (req, res, next) => req.isAuthenticated() && req.user[0].admin ? next() : res.status(401).send("unauthorized")
+
+module.exports = { validateUser, checkAuthAdmin };

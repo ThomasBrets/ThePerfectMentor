@@ -17,6 +17,7 @@ class UserService {
               name: body.name,
               email: body.email,
               password: body.password && bcrypt.hashSync(body.password, 10),
+              admin: body.admin,
             },
           },
           { new: true }
@@ -30,4 +31,4 @@ class UserService {
   }
 }
 
-module.exports = UserService
+module.exports = UserService;

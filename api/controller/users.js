@@ -1,6 +1,3 @@
-const express = require("express");
-const User = require("../models/Users");
-const mongoose = require("mongoose");
 const UserService = require("../services/users");
 
 class UserController {
