@@ -9,8 +9,8 @@ const users = require("./users")
 const admin = require("./admin")
 
 router.use("/auth", auth);
-router.use("/users", users);
-router.use("/admin", admin)
+router.use("/users", validateUser, users);
+router.use("/admin", checkAuthAdmin, admin)
 
 
 module.exports = router
