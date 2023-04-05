@@ -1,6 +1,14 @@
 const User = require("../models/Users");
 
 class AdminService {
+  static async getUsers(id) {
+    try {
+      const user = await User.find({ _id: { $ne: id } });
+    } catch (error) {
+      return { error: fals, data: error.message };
+    }
+  }
+
   static async deleteUsers(id) {
     try {
       User.deleteOne({ _id: id });
