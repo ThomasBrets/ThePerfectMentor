@@ -17,7 +17,7 @@ class AdminController {
       : res.json(data);
   }
 
-  static async propoteAdmin(req, res) {
+  static async promoteAdmin(req, res) {
     const { error, data } = await AdminService.promoteAdmin(
       req.params.userId,
       req.body.admin
