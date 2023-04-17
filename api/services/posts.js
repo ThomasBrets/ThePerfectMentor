@@ -19,9 +19,8 @@ class PostService {
   }
 
   static async deletePost(id) {
-    console.log("ID",id)
     try {
-      Post.deleteOne({ _id: id });
+      Post.findByIdAndDelete({ _id: id });
 
       const user = "Tu publicacion se borro correctamente";
 
