@@ -7,7 +7,7 @@ class AdminService {
 
       return { error: false, data: user };
     } catch (error) {
-      return { error: fals, data: error.message };
+      return { error: false, data: error.message };
     }
   }
 
