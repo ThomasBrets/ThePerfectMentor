@@ -17,6 +17,19 @@ class PostService {
       return { error: true, data: error.message };
     }
   }
+
+  static async deletePost(id) {
+    console.log("ID",id)
+    try {
+      Post.deleteOne({ _id: id });
+
+      const user = "Tu publicacion se borro correctamente";
+
+      return { error: false, data: user };
+    } catch (error) {
+      return { error: false, data: error.message };
+    }
+  }
 }
 
 module.exports = PostService;
