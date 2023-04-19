@@ -29,6 +29,25 @@ class PostService {
       return { error: false, data: error.message };
     }
   }
+
+  static async updatePost(id, body) {
+    try {
+      const post = await Post.findByIdAndUpdate(
+        id,
+        {
+          $set: {
+            tecnologies: body.tecnologies,
+            price: body.price,
+            description: body.description,
+          },
+        },
+        { new: true }
+      );
+      return { error: false, data: post };
+    } catch (error) {
+      return { error: true, data: error.message };
+    }
+  }
 }
 
 module.exports = PostService;
