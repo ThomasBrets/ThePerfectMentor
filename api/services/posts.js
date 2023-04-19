@@ -22,9 +22,9 @@ class PostService {
     try {
       Post.findByIdAndDelete({ _id: id });
 
-      const user = "Tu publicacion se borro correctamente";
+      const post = "Tu publicacion se borro correctamente";
 
-      return { error: false, data: user };
+      return { error: false, data: post };
     } catch (error) {
       return { error: false, data: error.message };
     }
