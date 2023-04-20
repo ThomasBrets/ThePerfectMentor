@@ -15,9 +15,9 @@ class AdminService {
     try {
       User.deleteOne({ _id: id });
 
-      const user = "El usuario se borro correctamente";
+      const match = "El match se borro correctamente";
 
-      return { error: false, data: user };
+      return { error: false, data: match };
     } catch (error) {
       return { error: false, data: error.message };
     }

@@ -15,6 +15,17 @@ class PostController {
       ? res.status(data.status || 500).json({ message: data })
       : res.json(data);
   }
+
+  static async updatePost(req, res) {
+    const { error, data } = await PostService.updatePost(
+      req.params.postId,
+      req.body
+    );
+
+    return error
+      ? res.status(data.status || 500).json({ message: data })
+      : res.json(data);
+  }
 }
 
 module.exports = PostController;
