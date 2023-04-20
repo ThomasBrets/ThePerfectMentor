@@ -9,7 +9,7 @@ class PostController {
   }
 
   static async deletePost(req, res) {
-    const { error, data } = await PostService.deletePost(req.params.postId);
+    const { error, data } = await PostService.deletePost(req.params.userId);
 
     return error
       ? res.status(data.status || 500).json({ message: data })

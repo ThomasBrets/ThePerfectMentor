@@ -20,8 +20,12 @@ class PostService {
 
   static async deletePost(id) {
     try {
+<<<<<<< HEAD
+      Post.deleteOne({ _id: id });
+=======
       await Post.findByIdAndDelete({ _id: id });
       const correcto = "Tu publicacion se borro correctamente";
+>>>>>>> c7d8a31b5fc51910614cb162824da3507be46f1c
 
       return { error: false, data: correcto };
     } catch (error) {
