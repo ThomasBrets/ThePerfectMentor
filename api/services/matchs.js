@@ -19,11 +19,10 @@ class MatchService {
 
   static async deleteMatch(id) {
     try {
-      Match.findByIdAndDelete({ _id: id });
+      await Match.findByIdAndDelete({ _id: id });
+      const correcto = "Tu clase se borro correctamente";
 
-      const match = "Tu match se borro correctamente";
-
-      return { error: false, data: match };
+      return { error: false, data: correcto };
     } catch (error) {
       return { error: false, data: error.message };
     }
