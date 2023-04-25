@@ -1,12 +1,10 @@
-const Match = require("../models/Matchs");
+const Match = require("../models/Match");
 const transporter = require("../config/nodemailer")
 
-
 class MatchService {
-  static async addMatch({ hourClass, dateClass }) {
+  static async addMatch({ dateClass }) {
     try {
       const match = new Match({
-        hourClass,
         dateClass,
       });
       
@@ -14,9 +12,9 @@ class MatchService {
       
       await transporter.sendMail({
         from: "Tienes una nueva clase programada <isaacemanzo51@gmail.com>",
-        to: "martina.duran@hotmail.com",
+        to: "thomas15501331@gmail.com",
         subjet: "Clase creada",
-        html: "<b>TE AMO MUCHO, QUIERO COMER FOCACCIA.</b>",
+        html: "<b>Bhavi sos malisimo.</b>",
       })
       
 
@@ -50,6 +48,15 @@ class MatchService {
         { new: true }
       );
       return { error: false, data: match };
+    } catch (error) {
+      return { error: true, data: error.message };
+    }
+  }
+  static async getAllMatches() {
+    try {
+      const matches = await Match.find({}).populate("user post._id")
+
+      return { error: false, data: matches}
     } catch (error) {
       return { error: true, data: error.message };
     }

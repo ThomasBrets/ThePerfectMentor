@@ -1,4 +1,4 @@
-const MatchService = require("../services/matchs");
+const MatchService = require("../services/match");
 
 class MatchController {
   static async addMatch(req, res) {
@@ -21,6 +21,14 @@ class MatchController {
       req.params.matchId,
       req.body
     );
+
+    return error
+      ? res.status(data.status || 500).json({ message: data })
+      : res.json(data);
+  }
+
+  static async getAllMatches(req, res) {
+    const { error, data } = await MatchService.getAllMatches();
 
     return error
       ? res.status(data.status || 500).json({ message: data })
