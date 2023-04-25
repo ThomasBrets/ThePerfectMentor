@@ -2,7 +2,11 @@ const { Schema, model } = require("mongoose");
 
 const MatchSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "User" },
-  post: { type: Schema.Types.ObjectId, ref: "Post" },
+  post: [
+    {
+      _id: { type: Schema.Types.ObjectId, ref: "Post" }
+    }
+],
   dateClass: {
     type: Date,
     required: true,
