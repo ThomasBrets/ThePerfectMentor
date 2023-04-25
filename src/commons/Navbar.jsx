@@ -4,22 +4,22 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl" href="http://127.0.0.1:5173/">ThePerfectMentor</a>
+        <a className="btn btn-ghost normal-case text-xl" href="http://localhost:5173/">ThePerfectMentor</a>
       </div>
       <div className="flex-2">
-        <a className="btn btn-ghost normal-case text-lg" href="http://127.0.0.1:5173/register">Registrate</a>
+        <a className="btn btn-ghost normal-case text-lg" href="http://localhost:5173/register">Registrate</a>
       </div>
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-lg" href="http://127.0.0.1:5173/login">Inicia Sesión</a>
+        <a className="btn btn-ghost normal-case text-lg" href="http://localhost:5173/login">Inicia Sesión</a>
       </div>
       <div className="flex-2">
         <a className="btn btn-ghost normal-case text-md">Buscar mi mentor</a>
       </div>
       <div className="flex-2">
-        <a className="btn btn-ghost normal-case text-md" href="http://127.0.0.1:5173/mis-clases">Mis clases</a>
+        <a className="btn btn-ghost normal-case text-md" href="http://localhost:5173/mis-clases">Mis clases</a>
       </div>
       <div className="flex-2">
-        <a className="btn btn-ghost normal-case text-md" href="http://127.0.0.1:5173/publicar">Publicar</a>
+        <a className="btn btn-ghost normal-case text-md" href="http://localhost:5173/publicar">Publicar</a>
       </div>
       <div className="flex-none">
         <div className="dropdown dropdown-end">
