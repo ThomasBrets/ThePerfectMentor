@@ -29,6 +29,29 @@ class UserService {
       return { error: true, data: error.message };
     }
   }
+  static async getAllMentors() {
+    try {
+      const mentors = await User.find({ mentor: true });
+      // console.log("MENTORS", mentors);
+
+      return { error: false, data: mentors };
+    } catch (error) {
+      return { error: true, data: error.message };
+    }
+  }
+  static async getMentorByName(name) {
+    try {
+      const mentors = await User.find({
+        mentor: true,
+        name: { $regex: name, $options: "i" },
+      });
+      console.log("MENTORS", mentors);
+
+      return { error: false, data: mentors };
+    } catch (error) {
+      return { error: true, data: error.message };
+    }
+  }
 }
 
 module.exports = UserService;
