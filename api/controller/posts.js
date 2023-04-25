@@ -1,6 +1,13 @@
 const PostService = require("../services/posts");
 
 class PostController {
+  static async getAllPosts(req, res) {
+    const { error, data } = await PostService.getAllPosts();
+
+    return error
+      ? res.status(data.status || 500).json({ message: data })
+      : res.status(data);
+  }
   static async addPost(req, res) {
     const { error, data } = await PostService.addPost(req.body);
     return error

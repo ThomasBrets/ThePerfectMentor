@@ -1,6 +1,15 @@
 const Post = require("../models/Posts");
 
 class PostService {
+  static async getAllPosts(){
+    try {
+      const post = await Post.find({}).populate("user")
+
+      return { error: false, data: post}
+    } catch (error) {
+      return { error: true, data: error.message }
+    }
+  }
   static async addPost({ tecnologies, price, description }) {
     try {
       console.log("data", tecnologies);
