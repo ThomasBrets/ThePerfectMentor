@@ -10,7 +10,7 @@ const mentor = require("./mentor")
 const match = require("./match")
 
 router.use("/auth", auth);
-router.use("/users", validateUser, users);
+router.use("/users", users);
 router.use("/admin", checkAuthAdmin, admin)
 router.use("/mentor", mentor)
 router.use("/match", match)

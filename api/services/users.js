@@ -32,7 +32,6 @@ class UserService {
   static async getAllMentors() {
     try {
       const mentors = await User.find({ mentor: true });
-      // console.log("MENTORS", mentors);
 
       return { error: false, data: mentors };
     } catch (error) {
@@ -45,7 +44,6 @@ class UserService {
         mentor: true,
         name: { $regex: name, $options: "i" },
       });
-      console.log("MENTORS", mentors);
 
       return { error: false, data: mentors };
     } catch (error) {
