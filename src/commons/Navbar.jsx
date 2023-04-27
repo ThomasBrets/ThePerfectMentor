@@ -49,7 +49,7 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a>Settings</a>
+                <a href="http://localhost:5173/user-page">Settings</a>
               </li>
               <li>
                 <a>Logout</a>
