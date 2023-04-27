@@ -1,26 +1,64 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 const Publicar = () => {
-  return (
-    <div className='m-20'>
-    <form>
-      <div class="relative z-0 w-full mb-6 group">
-          <input type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer" placeholder=" " required />
-          <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-purple-600 peer-focus:dark:text-purple-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">¿Qué deseas aprender?</label>
-      </div>
-      <div class="relative z-0 w-full mb-6 group">
-          <input type="password" name="floating_password" id="floating_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer" placeholder=" " required />
-          <label for="floating_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-purple-600 peer-focus:dark:text-purple-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">¿Qué disposición horaria tenes?</label>
-      </div>
-      <div class="relative z-0 w-full mb-6 group">
-          <input type="password" name="repeat_password" id="floating_repeat_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer" placeholder=" " required />
-          <label for="floating_repeat_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-purple-600 peer-focus:dark:text-purple-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">¿Cuantas clases necesitás?</label>
-      </div>
-      
-      <button type="submit" class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">Publicar</button>
-    </form>
-    </div>
-  )
-}
+  const [tecnologias, setTecnologias] = useState('');
+  const [precio, setPrecio] = useState('');
+  const [descripcion, setDescripcion] = useState('');
 
-export default Publicar
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Aquí puedes hacer algo con los valores de los campos
+    console.log(tecnologias, precio, descripcion);
+  };
+
+  return (
+    <div className="max-w-md pb-40 pt-20 mx-auto">
+      <h2 className="text-2xl font-bold mb-4">Publicar</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <label htmlFor="tecnologias" className="block font-bold mb-2">
+            Tecnologías
+          </label>
+          <input
+            type="text"
+            id="tecnologias"
+            className="w-full border border-gray-400 p-2 rounded-lg"
+            value={tecnologias}
+            onChange={(event) => setTecnologias(event.target.value)}
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="precio" className="block font-bold mb-2">
+            Precio
+          </label>
+          <input
+            type="text"
+            id="precio"
+            className="w-full border border-gray-400 p-2 rounded-lg"
+            value={precio}
+            onChange={(event) => setPrecio(event.target.value)}
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="descripcion" className="block font-bold mb-2">
+            Descripción
+          </label>
+          <textarea
+            id="descripcion"
+            className="w-full border border-gray-400 p-2 rounded-lg"
+            value={descripcion}
+            onChange={(event) => setDescripcion(event.target.value)}
+          />
+        </div>
+        <button
+          type="submit"
+          className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700"
+        >
+          Publicar
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default Publicar;
