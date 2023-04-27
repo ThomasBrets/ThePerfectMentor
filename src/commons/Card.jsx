@@ -28,7 +28,9 @@ const Card = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title">{elemento.name} {elemento.lastName}</h2>
+            <h2 className="card-title">
+              {elemento.name} {elemento.lastName}
+            </h2>
             <p>
               Conocimiento en JavaScript, por parte del back-end y front-end.
             </p>
