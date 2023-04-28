@@ -12,8 +12,7 @@ const db = require("./config/db");
 const routes = require('./routes')
 
 //! .env
-require('dotenv').config({path:"/home/thomas/bootcamp/ProfessionalProject/ThePerfectMentor/ThePerfectMentor/.env"})
-// console.log("DOTENV:", process.env.SESSION_KEY);
+require('dotenv').config()
 
 //!Middlewares
 app.use(cors())
@@ -34,7 +33,6 @@ app.use(
 const sessionKey = process.env.SESSION_KEY
 
 app.use(session({secret: sessionKey, resave: true, saveUninitialized: true}))
-// console.log("KEY", sessionKey);
 
 
 //!Routes
@@ -46,7 +44,6 @@ app.get("/", (req, res) => {
 
 //!Server
 const port = process.env.PORT || 3001
-// console.log("PORT", port);
 
 app.listen(port, () => {
     console.log(`Server on ${port}`);
