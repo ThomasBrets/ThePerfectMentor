@@ -54,7 +54,8 @@ class MatchService {
   }
   static async getAllMatches() {
     try {
-      const matches = await Match.find({}).populate("user post._id")
+      const matches = await Match.find({}).populate("user._id post._id")
+      console.log("MATCHES", matches);
 
       return { error: false, data: matches}
     } catch (error) {

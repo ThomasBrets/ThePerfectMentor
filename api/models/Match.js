@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const MatchSchema = new Schema({
-  user: { type: Schema.Types.ObjectId, ref: "User" },
+  user: [{ type: Schema.Types.ObjectId, ref: "User" }],
   post: [
     {
       _id: { type: Schema.Types.ObjectId, ref: "Post" }

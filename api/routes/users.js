@@ -10,4 +10,7 @@ router.put("/:userId", UserController.updateUser)
 router.get("/search", UserController.getAllMentors)
 router.get("/search/:name", UserController.getMentorByName)
 
+//!Post
+router
+
 module.exports = router

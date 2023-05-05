@@ -1,7 +1,7 @@
+const mongoose = require("mongoose");
 const { Schema, model } = require("mongoose");
 
 const PostSchema = new Schema({
-  user: { type: Schema.Types.ObjectId, ref: "User" },
   tecnologies: {
     type: String,
     required: true,
@@ -14,6 +14,7 @@ const PostSchema = new Schema({
     type: String,
     required: true,
   },
+  author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 });
 
 module.exports = model("Post", PostSchema);

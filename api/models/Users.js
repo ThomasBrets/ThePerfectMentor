@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 const findOrCreate = require("mongoose-findorcreate");
@@ -14,6 +15,7 @@ const UserSchema = new Schema({
   email: {
     type: String,
     required: true,
+    unique: true
   },
   age: {
     type: Number,
@@ -53,13 +55,19 @@ const UserSchema = new Schema({
   salt: {
     type: String,
   },
+  post: [
+    {
+      _id:{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }
+      
+    }
+  ],
 });
 
 UserSchema.methods.hash = (password, salt) => {
   return bcrypt.hash(password, salt);
-}
+};
 
-UserSchema.methods.validatePassword = async function(password) {
+UserSchema.methods.validatePassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
@@ -71,8 +79,6 @@ UserSchema.pre("save", async function (next) {
   next();
 });
 
-
 UserSchema.plugin(findOrCreate);
-
 
 module.exports = model("User", UserSchema);

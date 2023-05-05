@@ -1,22 +1,27 @@
+const { default: mongoose } = require("mongoose");
 const Post = require("../models/Posts");
-
+const User = require("../models/Users");
 class PostService {
-  static async getAllPosts(){
+  static async getAllPosts() {
     try {
-      const post = await Post.find({}).populate("user")
+      const post = await Post.find({}).populate("user", "name email")
+      console.log("POST", post);
 
       return { error: false, data: post}
     } catch (error) {
-      return { error: true, data: error.message }
+      return { error: true, data: error.message };
     }
   }
-  static async addPost({ tecnologies, price, description }) {
+  static async addPost({tecnologies, price, description}, id) {
     try {
-      console.log("data", tecnologies);
-      const post = new Post({
+      const user = await User.findById(id);
+      console.log("USER", user);
+
+      const post = await new Post({
         tecnologies,
         price,
         description,
+        author: user
       });
       console.log("POST", post);
       const resp = await post.save();
