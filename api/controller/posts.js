@@ -6,17 +6,20 @@ class PostController {
 
     return error
       ? res.status(data.status || 500).json({ message: data })
-      : res.status(data);
+      : res.json(data);
   }
   static async addPost(req, res) {
-    const { error, data } = await PostService.addPost(req.body);
+    const { error, data } = await PostService.addPost(
+      req.body,
+      req.params.userId
+    );
     return error
       ? res.status(data.status || 500).json({ message: data })
       : res.status(201).json(data);
   }
 
   static async deletePost(req, res) {
-    const { error, data } = await PostService.deletePost(req.params.userId);
+    const { error, data } = await PostService.deletePost(req.params.postId);
 
     return error
       ? res.status(data.status || 500).json({ message: data })

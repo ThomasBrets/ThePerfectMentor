@@ -31,7 +31,7 @@ class UserService {
   }
   static async getAllMentors() {
     try {
-      const mentors = await User.find({ mentor: true });
+      const mentors = await User.find({ mentor: true }).populate("post._id")
 
       return { error: false, data: mentors };
     } catch (error) {
