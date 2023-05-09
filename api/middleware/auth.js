@@ -14,4 +14,6 @@ const validateUser = (req, res, next) => {
 
 const checkAuthAdmin = (req, res, next) => req.isAuthenticated() && req.user[0].admin ? next() : res.status(401).send("unauthorized")
 
-module.exports = { validateUser, checkAuthAdmin };
+const checkAuthMentor = (req, res, next) => req.isAuthenticated() && req.user[0].mentor ? next() : res.status(401).send("unauthorized")
+
+module.exports = { validateUser, checkAuthAdmin, checkAuthMentor };

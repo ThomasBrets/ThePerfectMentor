@@ -15,7 +15,7 @@ const UserSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   age: {
     type: Number,
@@ -25,18 +25,16 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  areaCode: {
-    type: Number,
-    required: true,
-  },
   phoneNumber: {
     type: Number,
     required: true,
   },
-  country: {
-    type: String,
-    required: true,
-  },
+  location: [
+    {
+      country: { type: String, required: true },
+      city: { type: String, required: true },
+    },
+  ],
   photo: {
     type: String,
     required: true,
@@ -57,9 +55,8 @@ const UserSchema = new Schema({
   },
   post: [
     {
-      _id:{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }
-      
-    }
+      _id: { type: mongoose.Schema.Types.ObjectId, ref: "Post" },
+    },
   ],
 });
 
