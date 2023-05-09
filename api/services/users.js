@@ -1,4 +1,5 @@
 const User = require("../models/Users");
+const Post = require("../models/Posts");
 const joi = require("../config/joi");
 const bcrypt = require("bcrypt");
 
@@ -31,7 +32,7 @@ class UserService {
   }
   static async getAllMentors() {
     try {
-      const mentors = await User.find({ mentor: true }).populate("post._id")
+      const mentors = await User.find({ mentor: true }).populate("post._id");
 
       return { error: false, data: mentors };
     } catch (error) {
@@ -46,6 +47,64 @@ class UserService {
       });
 
       return { error: false, data: mentors };
+    } catch (error) {
+      return { error: true, data: error.message };
+    }
+  }
+  static async getAllPosts() {
+    try {
+      const post = await Post.find({}).populate("user", "name email")
+      console.log("POST", post);
+
+      return { error: false, data: post}
+    } catch (error) {
+      return { error: true, data: error.message };
+    }
+  }
+  static async addPost({ tecnologies, price, description, category }, id) {
+    try {
+      const user = await User.findById(id);
+      console.log("USER", user);
+
+      const post = await new Post({
+        tecnologies,
+        price,
+        description,
+        category,
+        author: user,
+      });
+      console.log("POST", post);
+      const resp = await post.save();
+
+      return { error: false, data: resp };
+    } catch (error) {
+      return { error: true, data: error.message };
+    }
+  }
+  static async deletePost(id) {
+    try {
+      await Post.findByIdAndDelete({ _id: id });
+      const correcto = "Tu publicacion se borro correctamente";
+
+      return { error: false, data: correcto };
+    } catch (error) {
+      return { error: false, data: error.message };
+    }
+  }
+  static async updatePost(id, body) {
+    try {
+      const post = await Post.findByIdAndUpdate(
+        id,
+        {
+          $set: {
+            tecnologies: body.tecnologies,
+            price: body.price,
+            description: body.description,
+          },
+        },
+        { new: true }
+      );
+      return { error: false, data: post };
     } catch (error) {
       return { error: true, data: error.message };
     }
