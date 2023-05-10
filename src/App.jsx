@@ -12,7 +12,7 @@ import UserPage from "./commons/UserPage";
 
 function App() {
   return (
-    <BrowserRouter>
+    <div>
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -24,7 +24,7 @@ function App() {
         <Route path="/user-page" element={<UserPage />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+      </div>
   );
 }
 
