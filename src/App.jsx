@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Home from "./components/Home";
 import Navbar from "./commons/Navbar";
@@ -12,7 +12,7 @@ import UserPage from "./commons/UserPage";
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -24,7 +24,7 @@ function App() {
         <Route path="/user-page" element={<UserPage />} />
       </Routes>
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 
