@@ -19,7 +19,6 @@ const UserSchema = new Schema({
   },
   age: {
     type: Number,
-    required: true,
   },
   password: {
     type: String,
@@ -27,19 +26,15 @@ const UserSchema = new Schema({
   },
   phoneNumber: {
     type: Number,
-    required: true,
   },
   location: [
     {
-      country: { type: String, required: true },
-      city: { type: String, required: true },
+      country: { type: String },
+      city: { type: String },
     },
   ],
   photo: {
     type: String,
-    required: true,
-    default:
-      "https://www.educapeques.com/wp-content/uploads/2015/11/009DDF63-8267-484C-B115-F1AA51450099-1024x604.jpg",
   },
   admin: {
     type: Boolean,
