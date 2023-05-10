@@ -2,34 +2,21 @@ const User = require("../models/Users");
 const joi = require("../config/joi");
 
 class AuthService {
-  static async createUser({
-    name,
-    lastName,
-    email,
-    age,
-    password,
-    areaCode,
-    phoneNumber,
-    country,
-    photo,
-  }) {
+  static async createUser({ name, lastName, email, password, mentor }) {
     try {
       const { error, value } = joi.validate({ name, password, email });
 
       if (!error) {
+        console.log("hola2");
+
         const user = new User({
           name,
           lastName,
           email,
-          age,
           password,
-          areaCode,
-          phoneNumber,
-          country,
-          photo,
+          mentor,
         });
-        console.log("USER", user);
-        const resp = await user.save()
+        const resp = await user.save();
 
         return { error: false, data: resp };
       }
@@ -38,6 +25,6 @@ class AuthService {
       return { error: true, data: error.message };
     }
   }
-  }
+}
 
 module.exports = AuthService;
