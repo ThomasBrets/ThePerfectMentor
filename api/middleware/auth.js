@@ -1,19 +1,31 @@
 const { validateToken } = require("../config/tokens");
 
 const validateUser = (req, res, next) => {
-  const token = req.cookies.token;
-  if(!token) res.sendStatus(401);
+  console.log("REQ", req.cookies)
+  const token = req.cookies && req.cookies.token;
+  console.log("TOKEN", token);
+  if (!token) {
+    return res.sendStatus(401);
+  }
 
   const { user } = validateToken(token);
-  if(!user) res.sendStatus(401);
+
+  if (!user) {
+    return res.sendStatus(401);
+  }
 
   req.user = user;
-
   next();
 };
 
-const checkAuthAdmin = (req, res, next) => req.isAuthenticated() && req.user[0].admin ? next() : res.status(401).send("unauthorized")
+const checkAuthAdmin = (req, res, next) =>
+  req.isAuthenticated() && req.user[0].admin
+    ? next()
+    : res.status(401).send("unauthorized");
 
-const checkAuthMentor = (req, res, next) => req.isAuthenticated() && req.user[0].mentor ? next() : res.status(401).send("unauthorized")
+const checkAuthMentor = (req, res, next) =>
+  req.isAuthenticated() && req.user[0].mentor
+    ? next()
+    : res.status(401).send("unauthorized");
 
 module.exports = { validateUser, checkAuthAdmin, checkAuthMentor };

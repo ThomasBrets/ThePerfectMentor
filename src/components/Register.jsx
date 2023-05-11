@@ -1,4 +1,5 @@
-import React from "react";
+import { useState, React } from "react";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -19,6 +20,16 @@ const validationSchema = Yup.object().shape({
 });
 
 const Register = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleCreateAccount = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      navigate("/login");
+    }, 2000);
+  };
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -41,22 +52,25 @@ const Register = () => {
   });
 
   return (
-    <section class="bg-base-100 pb-10 dark:bg-gray-900">
-      <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <section className="bg-base-100 pb-10 pt-10 dark:bg-gray-900">
+      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a
           href="#"
-          class="flex items-center mb-6 text-2xl font-semibold dark:text-white"
+          className="flex items-center mb-6 text-2xl font-semibold dark:text-white"
         >
           <img
-            class="w-8 h-8 mr-2"
+            className="w-8 h-8 mr-2"
             src="../assets/usuario.png"
             alt="logo"
           ></img>
           Registrate
         </a>
-        <div class="w-full bg-base-200 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-          <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <form class="space-y-4 md:space-y-6" onSubmit={formik.handleSubmit}>
+        <div className="w-full bg-base-200 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+            <form
+              className="space-y-4 md:space-y-6"
+              onSubmit={formik.handleSubmit}
+            >
               <div>
                 <label
                   htmlFor="name"
@@ -165,15 +179,17 @@ const Register = () => {
               </div>
               <button
                 type="submit"
-                class="w-full text-white btn-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                className="w-full text-white btn-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                onClick={handleCreateAccount}
+                disabled={isLoading}
               >
-                Crear mi cuenta
+                {isLoading ? "Cargando..." : "Crear mi cuenta"}
               </button>
-              <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+              <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Ya tienes una cuenta?{" "}
                 <a
                   href="/login"
-                  class="font-medium hover:underline dark:text-primary-500"
+                  className="font-medium hover:underline dark:text-primary-500"
                 >
                   Inicia sesión aqui
                 </a>

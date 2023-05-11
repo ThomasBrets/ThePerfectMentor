@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/auth/login" element={<Login />} />
         <Route path="/single-page" element={<SinglePage />} />
         <Route path="/mis-clases" element={<Clases />} />
         <Route path="/publicar" element={<Publicar />} />

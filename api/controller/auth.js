@@ -13,24 +13,37 @@ class AuthController {
     const { email, password } = req.body;
     User.findOne({ email })
       .then((user) => {
-        // console.log("USER", user);
-        if (!user) return res.sendStatus(401);
+        if (!user) {
+          return res.status(401).json({ error: "Credenciales inválidas" });
+        }
         user.validatePassword(password).then((isValid) => {
-          if (!isValid) return res.sendStatus(401);
-
+          if (!isValid) {
+            return res.status(401).json({ error: "Credenciales inválidas" });
+          }
+  
           const payload = {
             email: user.email,
             name: user.name,
           };
-
+  
           const token = generateToken(payload);
-
-          res.cookie("token", token);
-
-          res.send(payload);
+  
+          res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none",
+          });
+  
+          res.json({
+            token: token,
+            user: payload,
+          });
         });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        res.status(500).json({ error: "Error interno del servidor" });
+      });
   }
 
   static async logoutUser(req, res) {
@@ -46,8 +59,6 @@ class AuthController {
   static async secret(req, res) {
     res.send(req.user);
   }
-
-
 }
 
 module.exports = AuthController;
