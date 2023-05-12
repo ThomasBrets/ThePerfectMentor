@@ -1,6 +1,6 @@
 const User = require("../models/Users");
 const AuthService = require("../services/auth");
-const { generateToken, validateToken } = require("../config/tokens");
+const { generateToken } = require("../config/tokens");
 
 class AuthController {
   static async createUser(req, res) {
@@ -11,26 +11,36 @@ class AuthController {
   }
   static async loginUser(req, res) {
     const { email, password } = req.body;
+   
     User.findOne({ email })
       .then((user) => {
-        // console.log("USER", user);
-        if (!user) return res.sendStatus(401);
+        if (!user) {
+          return res.status(401).json({ error: "Credenciales inválidas" });
+        }
         user.validatePassword(password).then((isValid) => {
-          if (!isValid) return res.sendStatus(401);
-
+          if (!isValid) {
+            return res.status(401).json({ error: "Credenciales inválidas" });
+          }
+  
           const payload = {
             email: user.email,
             name: user.name,
           };
-
+          
           const token = generateToken(payload);
 
           res.cookie("token", token);
 
-          res.send(payload);
+          res.send(({
+            token: token,
+            user: payload,
+          }));
         });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        res.status(500).json({ error: "Error interno del servidor" });
+      });
   }
 
   static async logoutUser(req, res) {
@@ -46,8 +56,6 @@ class AuthController {
   static async secret(req, res) {
     res.send(req.user);
   }
-
-
 }
 
 module.exports = AuthController;

@@ -34,6 +34,7 @@ const UserSchema = new Schema({
   ],
   photo: {
     type: String,
+
     default:
       "https://www.educapeques.com/wp-content/uploads/2015/11/009DDF63-8267-484C-B115-F1AA51450099-1024x604.jpg",
   },
