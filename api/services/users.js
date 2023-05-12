@@ -51,6 +51,7 @@ class UserService {
       return { error: true, data: error.message };
     }
   }
+  //!POST
   static async getAllPosts() {
     try {
       const post = await Post.find({}).populate("user", "name email")
@@ -104,6 +105,17 @@ class UserService {
         },
         { new: true }
       );
+      return { error: false, data: post };
+    } catch (error) {
+      return { error: true, data: error.message };
+    }
+  }
+  static async getPostByTecnologie(tecnologie) {
+    try {
+      const post = await User.find({
+        name: { $regex: tecnologie, $options: "i" },
+      });
+
       return { error: false, data: post };
     } catch (error) {
       return { error: true, data: error.message };

@@ -3,15 +3,14 @@ const joi = require("../config/joi");
 
 class AuthService {
   static async createUser({ name, lastName, email, password, mentor }) {
+
     try {
       const { error, value } = joi.validate({ name, password, email });
 
       if (!error) {
-        console.log("hola2");
 
         const user = new User({
           name,
-          lastName,
           email,
           password,
           mentor,
