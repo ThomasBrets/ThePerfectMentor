@@ -22,12 +22,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
 app.use(morgan('dev'));
-
 const sessionKey = process.env.SESSION_KEY;
-
 app.use(session({ secret: sessionKey, resave: true, saveUninitialized: true }));
+app.use(cookieParser());
 
 //! Routes
 app.use("/api", routes);
@@ -45,7 +43,7 @@ app.get('/', function(req, res) {
 });
 
 //! Server
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
   console.log(`Server on ${port}`);

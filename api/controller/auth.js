@@ -11,6 +11,7 @@ class AuthController {
   }
   static async loginUser(req, res) {
     const { email, password } = req.body;
+   
     User.findOne({ email })
       .then((user) => {
         if (!user) {
@@ -25,19 +26,15 @@ class AuthController {
             email: user.email,
             name: user.name,
           };
-  
+          
           const token = generateToken(payload);
-  
-          res.cookie("token", token, {
-            httpOnly: true,
-            secure: true,
-            sameSite: "none",
-          });
-  
-          res.json({
+
+          res.cookie("token", token);
+
+          res.send(({
             token: token,
             user: payload,
-          });
+          }));
         });
       })
       .catch((error) => {

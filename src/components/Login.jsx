@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const Login = () => {
   const validationSchema = Yup.object().shape({
@@ -12,37 +13,35 @@ const Login = () => {
   });
 
   const handleLogin = async (values) => {
-    try {
-      const response = await axios.post(
-        "http://localhost:3001/api/auth/login",
-        values,
-        { withCredentials: true }
-      );
+  try {
+    const response = await axios.post(
+      "http://localhost:3001/api/auth/login",
+      values,
+      { withCredentials: true }
+    );
 
-      const accessToken = response.data.token;
-      sessionStorage.setItem("accessToken", accessToken);
+    const token = response.data.token;
+    Cookies.set("token", token);
 
+    const meResponse = await axios.get("http://localhost:3001/api/auth/me", {
+      headers: {
+        Authorization: `${token}`,
+        Cookie: `token=${token}` // Agregar el token en la cabecera Cookie
+      },
+    });
+    console.log("Detalles del usuario", meResponse.data);
 
-      const meResponse = await axios.get("http://localhost:3001/api/auth/me", {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      });
-      console.log("Detalles del usuario:", meResponse.data);
-
-      const secretResponse = await axios.get(
-        "http://localhost:3001/api/auth/secret",
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
-      );
-      console.log("Respuesta de la ruta secreta:", secretResponse.data);
-    } catch (error) {
-      console.error("Error en el inicio de sesión:", error);
-    }
-  };
+    const secretResponse = await axios.get("http://localhost:3001/api/auth/secret", {
+      headers: {
+        Authorization: `${token}`,
+        Cookie: `token=${token}` // Agregar el token en la cabecera Cookie
+      }
+    });
+    console.log("Respuesta de la ruta secreta", secretResponse.data);
+  } catch (error) {
+    console.error("Error en el inicio de sesión:", error);
+  }
+};
 
   const formik = useFormik({
     initialValues: {

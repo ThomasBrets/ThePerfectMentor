@@ -1,8 +1,8 @@
 const { validateToken } = require("../config/tokens");
 
 const validateUser = (req, res, next) => {
-  console.log("REQ", req.cookies)
-  const token = req.cookies && req.cookies.token;
+  console.log("REQ.HEADERS", req.headers.authorization);
+  const token = req.headers.authorization
   console.log("TOKEN", token);
   if (!token) {
     return res.sendStatus(401);
