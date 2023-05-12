@@ -10,10 +10,15 @@ const mentor = require("./mentor")
 router.put("/:userId", UserController.updateUser)
 
 //! SEARCH
+//?Mentor
 router.get("/search", UserController.getAllMentors)
 router.get("/search/:name", UserController.getMentorByName)
+//?Post
+router.get("/search/post", UserController.getAllPosts)
+router.get("/search/:tecnologie", UserController.getPostByTecnologie)
 
-//!Mentor
+
+//!MENTOR
 router.use("/mentor", checkAuthMentor, mentor)
 
 module.exports = router

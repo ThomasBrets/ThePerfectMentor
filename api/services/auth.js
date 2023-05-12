@@ -4,29 +4,20 @@ const joi = require("../config/joi");
 class AuthService {
   static async createUser({
     name,
-    lastName,
     email,
-    age,
     password,
-    areaCode,
-    phoneNumber,
-    country,
-    photo,
+    mentor,
   }) {
     try {
       const { error, value } = joi.validate({ name, password, email });
 
       if (!error) {
+        console.log("ENTRA");
         const user = new User({
           name,
-          lastName,
           email,
-          age,
           password,
-          areaCode,
-          phoneNumber,
-          country,
-          photo,
+          mentor,
         });
         console.log("USER", user);
         const resp = await user.save()

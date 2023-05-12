@@ -26,6 +26,7 @@ class UserController {
       ? res.status(data.status || 500).json({ message: data })
       : res.json(data);
   }
+  //!POST
   static async getAllPosts(req, res) {
     const { error, data } = await UserService.getAllPosts();
 
@@ -59,6 +60,16 @@ class UserController {
       ? res.status(data.status || 500).json({ message: data })
       : res.json(data);
   }
+  static async getPostByTecnologie(req, res) {
+    const { error, data } = await UserService.getPostByTecnologie(
+      req.params.tecnologie
+    );
+
+    return error
+      ? res.status(data.status || 500).json({ message: data })
+      : res.json(data);
+  }
+  
 }
 
 module.exports = UserController;
