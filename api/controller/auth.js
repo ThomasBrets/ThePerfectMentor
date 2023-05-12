@@ -1,6 +1,6 @@
 const User = require("../models/Users");
 const AuthService = require("../services/auth");
-const { generateToken, validateToken } = require("../config/tokens");
+const { generateToken } = require("../config/tokens");
 
 class AuthController {
   static async createUser(req, res) {
