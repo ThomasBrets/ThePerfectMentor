@@ -20,13 +20,12 @@ const corsOptions = {
 
 //! Middlewares
 app.use(cors(corsOptions));
+app.use(morgan('dev')); // Colocado antes de las rutas para registrar todas las solicitudes
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(morgan('dev'));
 const sessionKey = process.env.SESSION_KEY;
 app.use(session({ secret: sessionKey, resave: true, saveUninitialized: true }));
 app.use(cookieParser());
-
 //! Routes
 app.use("/api", routes);
 
