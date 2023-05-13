@@ -54,6 +54,7 @@ class AuthController {
   }
 
   static async secret(req, res) {
+    console.log("SECRET", req.user);
     res.send(req.user);
   }
 }
