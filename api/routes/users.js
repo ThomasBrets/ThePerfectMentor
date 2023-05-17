@@ -15,7 +15,9 @@ router.get("/search", UserController.getAllMentors)
 router.get("/search/:name", UserController.getMentorByName)
 //?Post
 router.get("/search/post", UserController.getAllPosts)
-router.get("/search/:tecnologie", UserController.getPostByTecnologie)
+router.get("/search/tecnologies/:name", UserController.getPostByTecnologies)
+router.get("/search/category/:name", UserController.getPostByCategory)
+
 
 
 //!MENTOR
