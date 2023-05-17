@@ -11,6 +11,22 @@ const Navbar = () => {
           ThePerfectMentor
         </a>
       </div>
+      <div className="flex-1 sm:flex-none">
+          <a
+            className="btn btn-ghost normal-case text-md"
+            href="http://localhost:5173/auth/login"
+          >
+            Login
+          </a>
+        </div>
+        <div className="flex-1 sm:flex-none">
+          <a
+            className="btn btn-ghost normal-case text-md"
+            href="http://localhost:5173/register"
+          >
+            Register
+          </a>
+        </div>
       <div className="float-left">
         <div className="flex-1 sm:flex-none">
           <a className="btn btn-ghost normal-case text-md">Buscar mi mentor</a>

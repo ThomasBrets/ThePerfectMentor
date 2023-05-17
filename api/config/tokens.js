@@ -2,7 +2,6 @@ const dotenv = require("dotenv");
 dotenv.config();
 const jwt = require('jsonwebtoken');
 
-
 const SECRET = process.env.SECRET
 
 console.log("SECRET", process.env.SECRET)
