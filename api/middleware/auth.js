@@ -1,21 +1,12 @@
-const User = require("../models/Users");
-
 const { validateToken } = require("../config/tokens");
 
 const validateUser = (req, res, next) => {
-<<<<<<< HEAD
-=======
-
->>>>>>> 84b2563f7459be071c810c4f53cb402690700ac2
+  console.log("REQ.COOKIES.TOKEN", req.cookies.token)
   const token = req.cookies.token;
   if(!token) res.sendStatus(401);
 
   const { user } = validateToken(token);
   if(!user) res.sendStatus(401);
-<<<<<<< HEAD
-=======
-
->>>>>>> 84b2563f7459be071c810c4f53cb402690700ac2
 
   req.user = user;
 
