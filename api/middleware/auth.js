@@ -1,9 +1,7 @@
-const User = require("../models/Users");
-
 const { validateToken } = require("../config/tokens");
 
 const validateUser = (req, res, next) => {
-
+  console.log("REQ.COOKIES.TOKEN", req.cookies.token)
   const token = req.cookies.token;
   if(!token) res.sendStatus(401);
 
