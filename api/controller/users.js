@@ -60,9 +60,18 @@ class UserController {
       ? res.status(data.status || 500).json({ message: data })
       : res.json(data);
   }
-  static async getPostByTecnologie(req, res) {
-    const { error, data } = await UserService.getPostByTecnologie(
-      req.params.tecnologie
+  static async getPostByTecnologies(req, res) {
+    const { error, data } = await UserService.getPostByTecnologies(
+      req.params.name
+    );
+
+    return error
+      ? res.status(data.status || 500).json({ message: data })
+      : res.json(data);
+  }
+  static async getPostByCategory(req, res) {
+    const { error, data } = await UserService.getPostByCategory(
+      req.params.name
     );
 
     return error
