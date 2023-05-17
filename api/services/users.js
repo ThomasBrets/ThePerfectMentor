@@ -110,11 +110,22 @@ class UserService {
       return { error: true, data: error.message };
     }
   }
-  static async getPostByTecnologie(tecnologie) {
+  static async getPostByTecnologies(name) {
     try {
-      const post = await User.find({
-        name: { $regex: tecnologie, $options: "i" },
-      });
+      const post = await Post.find({
+        tecnologies: { $regex: name, $options: "i" },
+      }).populate("author")
+
+      return { error: false, data: post };
+    } catch (error) {
+      return { error: true, data: error.message };
+    }
+  }
+  static async getPostByCategory(name) {
+    try {
+      const post = await Post.find({
+        category: { $regex: name, $options: "i" },
+      }).populate("author")
 
       return { error: false, data: post };
     } catch (error) {
