@@ -7,7 +7,6 @@ const validateUser = (req, res, next) => {
   const { user } = validateToken(token);
   if(!user) res.sendStatus(401);
 
-
   req.user = user;
 
   next();
