@@ -9,7 +9,7 @@ import Clases from "./components/Clases";
 import Publicar from "./commons/Publicar";
 import UserPage from "./components/UserPage";
 import Secret from "./components/Secret";
-
+//
 function App() {
   const [user, setUser] = useState("");
 
