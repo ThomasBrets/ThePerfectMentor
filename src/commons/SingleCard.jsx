@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SinglePage = () => {
+const SingleCard = () => {
   return (
     <div><div class="hero min-h-screen bg-base-100">
     <div class="hero-content flex-col lg:flex-row">
@@ -15,4 +15,4 @@ const SinglePage = () => {
   )
 }
 
-export default SinglePage
+export default SingleCard

@@ -1,20 +1,19 @@
 import React from "react";
 
+
 const Navbar = () => {
+ 
   return (
     <div className="navbar bg-base-100 flex flex-col sm:flex-row">
       <div className="flex-1 order-first sm:order-none">
-        <a
-          className="btn btn-ghost normal-case text-xl"
-          href="http://localhost:5173/"
-        >
+        <a className="btn btn-ghost normal-case text-xl" href="http://localhost:3000/">
           ThePerfectMentor
         </a>
       </div>
       <div className="flex-1 sm:flex-none">
           <a
             className="btn btn-ghost normal-case text-md"
-            href="http://localhost:5173/auth/login"
+            href="http://localhost:3000/auth/login"
           >
             Login
           </a>
