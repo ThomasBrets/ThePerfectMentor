@@ -1,6 +1,6 @@
 const User = require("../models/Users");
 const AuthService = require("../services/auth");
-const { generateToken } = require("../config/tokens");
+const { generateToken, validateToken } = require("../config/tokens");
 
 class AuthController {
   static async createUser(req, res) {
@@ -11,7 +11,7 @@ class AuthController {
   }
   static async loginUser(req, res) {
     const { email, password } = req.body;
-   
+
     User.findOne({ email })
       .then((user) => {
         if (!user) {
@@ -21,20 +21,21 @@ class AuthController {
           if (!isValid) {
             return res.status(401).json({ error: "Credenciales inválidas" });
           }
-  
+
           const payload = {
             email: user.email,
             name: user.name,
           };
-          
+
           const token = generateToken(payload);
+          console.log("TOKEN-BACK");
 
-          res.cookie("token", token);
+          res.cookie("token", token, {
+            sameSite: "none",
+            secure: true,
+          });
 
-          res.send(({
-            token: token,
-            user: payload,
-          }));
+          res.send(payload);
         });
       })
       .catch((error) => {
@@ -54,7 +55,6 @@ class AuthController {
   }
 
   static async secret(req, res) {
-    console.log("SECRET", req.user);
     res.send(req.user);
   }
 }

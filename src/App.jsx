@@ -1,30 +1,39 @@
 import { Route, Routes } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import Home from "./components/Home";
-import Navbar from "./commons/Navbar";
 import Register from "./components/Register";
 import Login from "./components/Login";
-import Footer from "./commons/Footer";
-import SinglePage from "./commons/SinglePage";
-import Clases from "./commons/Clases";
+import SingleCard from "./commons/SingleCard";
+import Clases from "./components/Clases";
 import Publicar from "./commons/Publicar";
-import UserPage from "./commons/UserPage";
-
+import UserPage from "./components/UserPage";
+import Secret from "./components/Secret";
+//
 function App() {
+  const [user, setUser] = useState("");
+
+useEffect(()=>{
+  const user = window.localStorage.getItem("user")
+  if(user){
+    const userLogged = JSON.parse(user)
+    setUser(userLogged)
+  }
+}, [])
+console.log("USER", user.email)
   return (
     <div>
-      <Navbar />
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<Home user={user} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/auth/login" element={<Login />} />
-        <Route path="/single-page" element={<SinglePage />} />
+        <Route path="/secret" element={<Secret />} />
+        <Route path="/single-card" element={<SingleCard />} />
         <Route path="/mis-clases" element={<Clases />} />
         <Route path="/publicar" element={<Publicar />} />
         <Route path="/user-page" element={<UserPage />} />
       </Routes>
-      <Footer />
-      </div>
+    </div>
   );
 }
 
