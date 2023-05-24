@@ -21,7 +21,7 @@ const Navbar = () => {
         <div className="flex-1 sm:flex-none">
           <a
             className="btn btn-ghost normal-case text-md"
-            href="http://localhost:5173/register"
+            href="http://localhost:3000/register"
           >
             Register
           </a>
@@ -33,7 +33,7 @@ const Navbar = () => {
         <div className="flex-1 sm:flex-none">
           <a
             className="btn btn-ghost normal-case text-md"
-            href="http://localhost:5173/mis-clases"
+            href="http://localhost:3000/mis-clases"
           >
             Mis clases
           </a>
@@ -41,7 +41,7 @@ const Navbar = () => {
         <div className="flex-1 sm:flex-none">
           <a
             className="btn btn-ghost normal-case text-md"
-            href="http://localhost:5173/publicar"
+            href="http://localhost:3000/publicar"
           >
             Publicar
           </a>
@@ -64,7 +64,7 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a href="http://localhost:5173/user-page">Settings</a>
+                <a href="http://localhost:3000/user-page">Settings</a>
               </li>
               <li>
                 <a>Logout</a>
