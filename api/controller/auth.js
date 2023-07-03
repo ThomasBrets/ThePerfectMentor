@@ -28,12 +28,9 @@ class AuthController {
           };
 
           const token = generateToken(payload);
-          console.log("TOKEN-BACK");
+          console.log("TOKEN-BACK", token);
 
-          res.cookie("token", token, {
-            sameSite: "none",
-            secure: true,
-          });
+          res.cookie("token", token);
 
           res.send(payload);
         });

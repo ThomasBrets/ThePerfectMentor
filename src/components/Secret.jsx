@@ -12,6 +12,7 @@ const Secret = () => {
     const fetchData = async () => {
       try {
         const token = Cookies.get("token");
+        console.log("TOKEN-SECRET",token)
         const response = await axios.get(
           "http://localhost:3001/api/auth/secret",
           {
