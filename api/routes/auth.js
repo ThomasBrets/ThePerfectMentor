@@ -9,7 +9,7 @@ router.post("/login", AuthController.loginUser)
 router.post("/logout", AuthController.logoutUser);
 
 //! GET
-router.get("/me", validateUser, AuthController.findMyUser);
-router.get("/secret", validateUser, AuthController.secret)
+router.get("/me", AuthController.findMyUser);
+router.get("/secret", AuthController.secret)
 
 module.exports = router
