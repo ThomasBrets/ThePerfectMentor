@@ -4,7 +4,7 @@ const validateUser = (req, res, next) => {
   console.log(req.cookies.token)
   
   const token = req.cookies.token;
-  console.log("TOKEN", token)
+
   if(!token) res.sendStatus(401);
 
   const { user } = validateToken(token);

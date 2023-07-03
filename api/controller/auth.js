@@ -32,6 +32,7 @@ class AuthController {
 
           res.cookie("token", token);
 
+          console.log("PAYLOAD", payload);
           res.send(payload);
         });
       })
@@ -48,7 +49,8 @@ class AuthController {
   }
 
   static async findMyUser(req, res) {
-    !req.user ? res.sendStatus(401) : res.send(req.user);
+    console.log("USER", req.user);
+    res.send(req.user);
   }
 
   static async secret(req, res) {
