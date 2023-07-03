@@ -1,13 +1,13 @@
 import React from "react";
 
 
-const Navbar = () => {
- 
+const Navbar = ({user}) => {
+ console.log("USER", user)
   return (
     <div className="navbar bg-base-100 flex flex-col sm:flex-row">
       <div className="flex-1 order-first sm:order-none">
         <a className="btn btn-ghost normal-case text-xl" href="http://localhost:3000/">
-          ThePerfectMentor
+          {user.email}
         </a>
       </div>
       <div className="flex-1 sm:flex-none">
