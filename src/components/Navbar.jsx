@@ -4,9 +4,12 @@ import React from "react";
 const Navbar = ({user}) => {
  console.log("USER", user)
   return (
-    <div className="navbar bg-base-100 flex flex-col sm:flex-row">
-      <div className="flex-1 order-first sm:order-none">
-        <a className="btn btn-ghost normal-case text-xl" href="http://localhost:3000/">
+    <div>
+
+    <nav className="navbar flex flex-col sm:flex-row bg-stone-600 py-6">
+      <div className="container mx-auto">
+      <div className=" flex-1 order-first sm:order-none">
+        <a className="btn btn-ghost normal-case text-xl" href="http://localhost:3000/search/:name">
           {user.email}
         </a>
       </div>
@@ -35,7 +38,7 @@ const Navbar = ({user}) => {
             className="btn btn-ghost normal-case text-md"
             href="http://localhost:3000/mis-clases"
           >
-            Mis clases
+            {user.email}
           </a>
         </div>
         <div className="flex-1 sm:flex-none">
@@ -73,6 +76,8 @@ const Navbar = ({user}) => {
           </div>
         </div>
       </div>
+      </div>
+    </nav>
     </div>
   );
 };
