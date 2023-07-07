@@ -4,8 +4,9 @@ export default {
     "./**/*.html",
     "./**/*.jsx",
     "./**/*.css",
-    "./public/tailwind.css",
-    "./main.css"
+    "./components/**/*.jsx",
+    'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
+    "src/components/Navbar.jsx"
   ],
   presets: [],
   darkMode: 'media', // or 'class'
@@ -993,6 +994,6 @@ export default {
       50: '50',
     },
   },
-  plugins: [],
+  plugins: [require('flowbite/plugin')],
 }
 
