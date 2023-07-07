@@ -5,6 +5,7 @@ import { AuthProvider } from "react-auth-kit";
 import { BrowserRouter } from "react-router-dom";
 import "./main.css";
 
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider
