@@ -6,8 +6,13 @@ const Card = ({ mentor }) => {
     <div>
       {mentor?.map((mentor) => (
         <div
+<<<<<<< HEAD
           className="m-10 card lg:card-side bg-gray-700 shadow-xl"
           key={mentor._id}
+=======
+          className="m-10  bg-stone-300 card lg:card-side bg-base-100 shadow-xl"
+          key={elemento.id}
+>>>>>>> c13b2cdabc730703f13d0c2e5b8f67216bb697d6
         >
           <figure>
             <img
