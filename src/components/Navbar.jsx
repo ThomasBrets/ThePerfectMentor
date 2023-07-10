@@ -1,13 +1,16 @@
 import React from "react";
 
 
-const Navbar = () => {
- 
+const Navbar = ({user}) => {
+ console.log("USER", user)
   return (
-    <div className="navbar bg-gray-700 flex flex-col sm:flex-row">
-      <div className="flex-1 order-first sm:order-none">
-        <a className="btn btn-ghost hover:bg-gray-700 text-amber-400 normal-case text-4xl hover:text-amber-500" href="http://localhost:3000/">
-          ThePerfectMentor
+    <div>
+
+    <nav className="navbar flex flex-col sm:flex-row bg-stone-600 py-6">
+      <div className="container mx-auto">
+      <div className=" flex-1 order-first sm:order-none">
+        <a className="btn btn-ghost normal-case text-xl" href="http://localhost:3000/search/:name">
+          {user.email}
         </a>
       </div>
       <div className="flex-1 sm:flex-none">
@@ -35,7 +38,7 @@ const Navbar = () => {
             className="btn btn-ghost hover:bg-gray-700 text-amber-400 normal-case text-lg hover:text-amber-500"
             href="http://localhost:3000/mis-clases"
           >
-            Mis clases
+            {user.email}
           </a>
         </div>
         <div className="flex-1 sm:flex-none">
@@ -73,6 +76,8 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      </div>
+    </nav>
     </div>
   );
 };
