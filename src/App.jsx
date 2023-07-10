@@ -11,30 +11,32 @@ import Clases from "./components/Clases";
 import Publicar from "./commons/Publicar";
 import UserPage from "./components/UserPage";
 import Secret from "./components/Secret";
+import Navbar from "./components/Navbar";
 ///
 function App() {
   const [user, setUser] = useState("");
   const [mentor, setMentor] = useState(null);
 
-useEffect(()=>{
-  const user = window.localStorage.getItem("user")
-  if(user){
-    const userLogged = JSON.parse(user)
-    setUser(userLogged)
-  }
-}, [])
+  useEffect(() => {
+    const user = window.localStorage.getItem("user");
+    if (user) {
+      const userLogged = JSON.parse(user);
+      setUser(userLogged);
+    }
+  }, []);
 
-const mentorURL = "http://localhost:3001/api/users/search";
+  const mentorURL = "http://localhost:3001/api/users/search";
 
-useEffect(() => {
-  axios.get(mentorURL).then((response) => {
-    setMentor(response.data);
-  });
-}, []);
-if (!mentor) return null;
+  useEffect(() => {
+    axios.get(mentorURL).then((response) => {
+      setMentor(response.data);
+    });
+  }, []);
+  if (!mentor) return null;
 
   return (
-    <div>
+    <div className="bg-gray-300">
+      <Navbar user={user} />
       <Routes>
         <Route exact path="/" element={<Home user={user} mentor={mentor} />} />
         <Route path="/register" element={<Register />} />
