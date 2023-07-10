@@ -34,7 +34,7 @@ const Login = () => {
   });
 
   return (
-    <section className="bg-base-100 dark:bg-gray-900">
+    <section className="bg-gray-300 dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a
           href="#"
@@ -48,7 +48,7 @@ const Login = () => {
           Inicia sesión
         </a>
         <div className="w-full bg-base-200 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+          <div className="p-6 space-y-4 md:space-y-6 sm:p-8 rounded-lg bg-gray-700">
             <form
               className="space-y-4 md:space-y-6"
               onSubmit={formik.handleSubmit}
@@ -56,7 +56,7 @@ const Login = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium dark:text-white"
+                  className="block mb-2 text-lg font-medium text-amber-400 dark:text-white"
                 >
                   Email
                 </label>
@@ -74,7 +74,7 @@ const Login = () => {
               <div className="relative">
                 <label
                   htmlFor="password"
-                  className="block mb-2 text-sm font-medium dark:text-white"
+                  className="block mb-2 text-lg font-medium text-amber-400 dark:text-white"
                 >
                   Contraseña
                 </label>
@@ -93,15 +93,15 @@ const Login = () => {
               </div>
               <button
                 type="submit"
-                className="w-full text-white btn-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lgtext-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                className="w-full text-lg bg-amber-600 text-white btn-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lgtext-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
               >
                 Iniciar sesión
               </button>
-              <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+              <p className="text-base font-light text-gray-500 dark:text-gray-400">
                 ¿No tienes una cuenta?{" "}
                 <a
                   href="/register"
-                  className="font-medium hover:underline dark:text-primary-500"
+                  className="font-medium text-base text-amber-500 hover:underline dark:text-primary-500"
                 >
                   Regístrate
                 </a>
