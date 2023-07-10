@@ -1,7 +1,6 @@
 const { validateToken } = require("../config/tokens");
 
 const validateUser = (req, res, next) => {
-<<<<<<< HEAD
   const token = localStorage.getItem("token");
   console.log(token);
   
@@ -9,15 +8,6 @@ const validateUser = (req, res, next) => {
 
   const { user } = validateToken(token);
   if (!user) res.sendStatus(401);
-=======
-  const token = req.cookies.token;
-  console.log("VToken", token);
-  if(!token) res.sendStatus(401);
-
-  const { user } = validateToken(token);
-  console.log("VUser", user);
-  if(!user) res.sendStatus(401);
->>>>>>> cfaad7c... logs
 
   req.user = user;
 
