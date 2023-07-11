@@ -4,20 +4,10 @@ import React from "react";
 const Navbar = ({user}) => {
  console.log("USER", user)
   return (
-<<<<<<< HEAD
     <div className="navbar bg-gray-700 flex flex-col sm:flex-row">
       <div className="flex-1 order-first sm:order-none">
         <a className="btn btn-ghost hover:bg-gray-700 text-amber-400 normal-case text-4xl hover:text-amber-500" href="http://localhost:3000/">
           ThePerfectMentor
-=======
-    <div>
-
-    <nav className="navbar flex flex-col sm:flex-row bg-stone-600 py-6">
-      <div className="container mx-auto">
-      <div className=" flex-1 order-first sm:order-none">
-        <a className="btn btn-ghost normal-case text-xl" href="http://localhost:3000/search/:name">
-          {user.email}
->>>>>>> c13b2cdabc730703f13d0c2e5b8f67216bb697d6
         </a>
       </div>
       <div className="flex-1 sm:flex-none">
@@ -84,8 +74,6 @@ const Navbar = ({user}) => {
         </div>
       </div>
       </div>
-    </nav>
-    </div>
   );
 };
 
