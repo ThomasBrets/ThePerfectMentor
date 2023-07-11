@@ -6,8 +6,7 @@ import Footer from "./Footer";
 
 const Home = ({ user, mentor }) => {
   return (
-    <div className="bg-yellow-100">
-      <Navbar user={user}/>
+    <div>
       <Card mentor={mentor} />
       <Footer />
     </div>
