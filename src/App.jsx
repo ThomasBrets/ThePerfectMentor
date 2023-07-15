@@ -12,6 +12,8 @@ import Publicar from "./commons/Publicar";
 import UserPage from "./components/UserPage";
 import Secret from "./components/Secret";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 ///
 function App() {
   const [user, setUser] = useState("");
@@ -47,6 +49,7 @@ function App() {
         <Route path="/publicar" element={<Publicar />} />
         <Route path="/user-page" element={<UserPage />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
