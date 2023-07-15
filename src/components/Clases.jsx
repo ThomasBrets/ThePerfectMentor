@@ -1,7 +1,7 @@
 import React from "react";
 
 const Clases = () => {
-  //
+  
   return (
     <div className="flex m-20">
       <div class="card mx-5 w-96 bg-base-200 shadow-xl">
