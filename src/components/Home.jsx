@@ -10,6 +10,7 @@ const Home = ({ user, mentor }) => {
       <Card mentor={mentor} />
     </div>
 
+
   </div>
 
   );
