@@ -2,11 +2,14 @@ import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
 import Home from "./components/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Secret from "./components/Secret";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 ///
 function App() {
   const [user, setUser] = useState("");
@@ -38,6 +41,7 @@ function App() {
         <Route path="/auth/login" element={<Login />} />
         <Route path="/secret" element={<Secret />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
