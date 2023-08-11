@@ -52,7 +52,7 @@ const Register = () => {
   });
 
   return (
-    <section className="bg-base-100 pb-10 pt-10 dark:bg-gray-900">
+    <section className=" pb-10 pt-10 dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a
           href="#"

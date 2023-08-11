@@ -1,11 +1,13 @@
 import React from "react";
 
-import Footer from "./Footer";
+
+import Cards from "../commons/Cards";
+
 
 const Home = ({ user, mentor }) => {
   return (
     <div>
-     
+      <Footer />
     </div>
   );
 };
