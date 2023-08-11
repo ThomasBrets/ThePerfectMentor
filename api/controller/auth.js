@@ -47,15 +47,16 @@ class AuthController {
 
     res.sendStatus(204);
   }
-
+  
+  static async secret(req, res) {
+    res.send(req.user);
+  }
+  
   static async findMyUser(req, res) {
     console.log("USER", req.user);
     res.send(req.user);
   }
 
-  static async secret(req, res) {
-    res.send(req.user);
-  }
 }
 
 module.exports = AuthController;
